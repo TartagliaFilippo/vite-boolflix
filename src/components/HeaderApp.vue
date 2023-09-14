@@ -1,9 +1,25 @@
 <script>
-export default {};
+import SearchBar from "./ui/SearchBar.Vue";
+
+export default {
+  components: { SearchBar },
+};
 </script>
 
 <template>
-  <h1>io sono l'header</h1>
+  <div class="wrapper">
+    <h1>BOOLFLIX</h1>
+    <SearchBar></SearchBar>
+  </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  h1 {
+    color: red;
+  }
+}
+</style>
