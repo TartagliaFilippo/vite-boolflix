@@ -90,13 +90,6 @@ export default {
 <template>
   <div class="container">
     <HeaderApp @search-input="fetchMovies" />
-    <ul>
-      <li v-for="movie in store.moviesList" :key="movie.id">
-        {{ movie.id }} - {{ movie.title }} - {{ movie.original_language }} -
-        {{ movie.original_title }} - {{ movie.vote_average }} -
-        {{ movie.overview }}
-      </li>
-    </ul>
     <MainApp />
   </div>
 </template>
