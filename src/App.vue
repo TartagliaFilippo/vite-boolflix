@@ -13,13 +13,17 @@ export default {
   },
 
   methods: {
-    fetchCard() {
+    // metodo che chiama la lista dei film
+    fetchMovies(inputTerm) {
       axios
-        .get(
-          "https://api.themoviedb.org/3/search/movie?query=rings&api_key=ff4c9e21c1a084c962cab1b46ecc2f00"
-        )
+        .get("https://api.themoviedb.org/3/search/movie", {
+          params: {
+            query: inputTerm,
+            api_key: "ff4c9e21c1a084c962cab1b46ecc2f00",
+          },
+        })
         .then((response) => {
-          const cardsData = response.data.results.map((card) => {
+          store.moviesList = response.data.results.map((movie) => {
             const {
               id,
               title,
@@ -27,7 +31,8 @@ export default {
               original_language,
               vote_average,
               overview,
-            } = card;
+            } = movie;
+            console.log(movie);
             return {
               id,
               title,
@@ -37,14 +42,45 @@ export default {
               overview,
             };
           });
+        });
+    },
 
-          store.mappedList = cardsData;
+    // metodo che chiama le mie serie tv
+    fetchSeries() {
+      axios
+        .get("https://api.themoviedb.org/3/search/tv", {
+          params: {
+            query: "rings",
+            api_key: "ff4c9e21c1a084c962cab1b46ecc2f00",
+          },
+        })
+        .then((response) => {
+          store.seriesList = response.data.results.map((serie) => {
+            const {
+              id,
+              name,
+              original_title,
+              original_language,
+              vote_average,
+              overview,
+            } = serie;
+
+            return {
+              id,
+              name,
+              original_title,
+              original_language,
+              vote_average,
+              overview,
+            };
+          });
         });
     },
   },
 
-  create() {
-    this.fetchCard();
+  created() {
+    // this.fetchMovies();
+    // this.fetchSeries();
   },
 
   components: { HeaderApp, MainApp },
@@ -52,10 +88,19 @@ export default {
 </script>
 
 <template>
-  <div class="container"><HeaderApp></HeaderApp> <MainApp></MainApp></div>
+  <div class="container">
+    <HeaderApp @search-input="fetchMovies" />
+    <ul>
+      <li v-for="movie in store.moviesList" :key="movie.id">
+        {{ movie.id }} - {{ movie.title }} - {{ movie.original_language }} -
+        {{ movie.original_title }} - {{ movie.vote_average }} -
+        {{ movie.overview }}
+      </li>
+    </ul>
+    <MainApp />
+  </div>
 </template>
 
 <style lang="scss">
 @use "./style/general.scss" as *;
-@use "bootstrap/scss/bootstrap";
 </style>

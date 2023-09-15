@@ -2,6 +2,14 @@
 import SearchBar from "./ui/SearchBar.Vue";
 
 export default {
+  emits: ["search-input"],
+
+  methods: {
+    emitsCall(inputTerm) {
+      this.$emit("search-input", inputTerm);
+    },
+  },
+
   components: { SearchBar },
 };
 </script>
@@ -9,7 +17,7 @@ export default {
 <template>
   <div class="wrapper">
     <h1>BOOLFLIX</h1>
-    <SearchBar></SearchBar>
+    <SearchBar @search-input="emitsCall"></SearchBar>
   </div>
 </template>
 

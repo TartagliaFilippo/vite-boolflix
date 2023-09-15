@@ -8,7 +8,6 @@ export default {
 
 <template>
   <ListCards></ListCards>
-  <h1>io sono il main</h1>
 </template>
 
 <style lang="scss" scoped></style>

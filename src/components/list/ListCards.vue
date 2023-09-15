@@ -8,7 +8,6 @@ export default {
 
 <template>
   <CardApp></CardApp>
-  <h1>io sono la lista</h1>
 </template>
 
 <style lang="scss" scoped></style>
