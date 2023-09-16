@@ -6,6 +6,8 @@ import HeaderApp from "./components/HeaderApp.vue";
 import MainApp from "./components/MainApp.vue";
 
 export default {
+  name: "Flag",
+
   data() {
     return {
       store,
@@ -13,8 +15,9 @@ export default {
   },
 
   methods: {
-    // metodo che chiama la lista dei film
-    fetchMovies(inputTerm) {
+    fetchMoviesNSeries(inputTerm) {
+      // metodo che chiama la lista dei film
+
       axios
         .get("https://api.themoviedb.org/3/search/movie", {
           params: {
@@ -37,20 +40,18 @@ export default {
               id,
               title,
               original_title,
-              original_language,
+              original_language:
+                "../../../public/bandiere/" + original_language + ".png",
               vote_average,
               overview,
             };
           });
         });
-    },
 
-    // metodo che chiama le mie serie tv
-    fetchSeries() {
       axios
         .get("https://api.themoviedb.org/3/search/tv", {
           params: {
-            query: "rings",
+            query: inputTerm,
             api_key: "ff4c9e21c1a084c962cab1b46ecc2f00",
           },
         })
@@ -89,7 +90,8 @@ export default {
 
 <template>
   <div class="container">
-    <HeaderApp @search-input="fetchMovies" />
+    <vue-flagpack code="NL" />
+    <HeaderApp @search-input="fetchMoviesNSeries" />
     <MainApp />
   </div>
 </template>

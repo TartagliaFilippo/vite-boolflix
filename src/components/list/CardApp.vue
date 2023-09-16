@@ -17,8 +17,8 @@ export default {
     <img src="" class="card-img-top" alt="" />
     <div class="card-body">
       <h5 class="card-title">{{ data.title }}</h5>
+      <img :src="data.original_language" alt="" />
       <p>{{ data.original_title }}</p>
-      <p>{{ data.original_language }}</p>
       <p>{{ data.overview }}</p>
       <p>{{ data.vote_average }}</p>
     </div>
