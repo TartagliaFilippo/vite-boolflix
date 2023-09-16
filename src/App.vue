@@ -90,7 +90,6 @@ export default {
 
 <template>
   <div class="container">
-    <vue-flagpack code="NL" />
     <HeaderApp @search-input="fetchMoviesNSeries" />
     <MainApp />
   </div>
