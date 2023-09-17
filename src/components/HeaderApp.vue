@@ -17,7 +17,6 @@ export default {
 <template>
   <div class="wrapper">
     <h1>BOOLFLIX</h1>
-    <font-awesome-icon icon="fa-solid fa-star" />
     <SearchBar @search-input="emitsCall"></SearchBar>
   </div>
 </template>

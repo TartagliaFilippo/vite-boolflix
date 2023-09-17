@@ -14,13 +14,17 @@ export default {
 
 <template>
   <div class="card" style="width: 18rem">
-    <img src="" class="card-img-top" alt="" />
+    <img
+      :src="'https://image.tmdb.org/t/p/w500' + data.image"
+      class="card-img-top"
+      alt=""
+    />
     <div class="card-body">
       <h5 class="card-title">{{ data.title }}</h5>
       <img :src="data.original_language" alt="" />
       <p>{{ data.original_title }}</p>
       <p>{{ data.overview }}</p>
-      <p>{{ data.vote_average }}</p>
+      <font-awesome-icon icon="fa-solid fa-star" v-for="star in data.vote" />
     </div>
   </div>
 </template>
