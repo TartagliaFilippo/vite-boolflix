@@ -34,7 +34,7 @@ export default {
               original_language,
               vote_average,
               overview,
-              backdrop_path,
+              poster_path,
             } = movie;
             return {
               id,
@@ -44,7 +44,7 @@ export default {
                 "../../../public/bandiere/" + original_language + ".png",
               vote: Math.ceil(vote_average / 2),
               overview,
-              image: backdrop_path,
+              image: poster_path,
             };
           });
         });
@@ -65,9 +65,8 @@ export default {
               original_language,
               vote_average,
               overview,
-              backdrop_path,
+              poster_path,
             } = serie;
-            console.log(serie);
             return {
               id,
               title: name,
@@ -76,7 +75,7 @@ export default {
                 "../../../public/bandiere/" + original_language + ".png",
               vote: Math.ceil(vote_average / 2),
               overview,
-              image: backdrop_path,
+              image: poster_path,
             };
           });
         });

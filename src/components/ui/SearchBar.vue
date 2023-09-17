@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-  <div class="input-group mb-3">
+  <div class="input-group">
     <input
       v-model="inputTerm"
       type="text"

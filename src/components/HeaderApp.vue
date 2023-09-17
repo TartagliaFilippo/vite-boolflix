@@ -25,9 +25,13 @@ export default {
 .wrapper {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
+  margin: 20px 0 30px;
 
   h1 {
     color: red;
+    margin: 0;
   }
 }
 </style>
