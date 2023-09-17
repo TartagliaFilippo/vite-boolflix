@@ -35,7 +35,6 @@ export default {
               vote_average,
               overview,
             } = movie;
-            console.log(movie);
             return {
               id,
               title,
@@ -65,12 +64,13 @@ export default {
               vote_average,
               overview,
             } = serie;
-
+            console.log(serie);
             return {
               id,
-              name,
+              title: name,
               original_title,
-              original_language,
+              original_language:
+                "../../../public/bandiere/" + original_language + ".png",
               vote_average,
               overview,
             };
